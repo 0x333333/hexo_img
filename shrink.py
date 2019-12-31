@@ -6,12 +6,17 @@ BASE_WIDTH = 1024
 
 for filepath in arr:
     print ">> file: " + filepath
-    if 'jpg' in filepath or 'jpeg' in filepath or 'png' in filepath:
+    if ('jpg' in filepath or 
+        'JPG' in filepath or 
+        'jpeg' in filepath or 
+        'JPEG' in filepath or 
+        'png' in filepath or
+        'PNG' in filepath):
         try:
-            image=Image.open(filepath)
+            image = Image.open(filepath)
             width = float(image.size[0])
             height = float(image.size[1])
-            if width > BASE_WIDTH: 
+            if width > BASE_WIDTH:
                 ratio = BASE_WIDTH / width
                 print "ratio: " + str(ratio)
                 width = BASE_WIDTH
